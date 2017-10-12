@@ -1,0 +1,116 @@
+body {
+    font-family: 'Arial';
+    font-size: 25px;
+    display: flex;
+}
+
+main {
+    margin: auto;
+    width: 60%;
+}
+
+.down {
+    display: flex;
+}
+
+section {
+    margin: 0 auto;
+    display: block;
+    width: 390px;
+    text-align: center;
+    background-color: #999990;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input {
+    margin: 10px auto;
+    display: inline-block;
+}
+
+.background {
+    margin: 30px auto 10px auto;
+    width: 390px;
+    height: 650px;
+    background-color: #999990;
+    display: flex;
+    border-radius: 10px;
+} 
+
+table {
+    margin: auto;
+    width: 380px;
+    height: 500px;
+}
+
+tr {
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    margin-bottom: 20px;
+}
+
+td {
+    display: block;
+    margin: 5px;
+    width: 75px;
+    height: 75px;
+    background-color: #fffff0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+td:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.wrap {
+    margin: 10px auto;
+    background-color: black;
+    width: 330px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+h4 {
+    color: aliceblue;
+    line-height: 25px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 15px;
+}
+
+h3 {
+    color: aliceblue;
+    line-height: 75px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 35px;
+}
+
+p {
+    line-height: 75px;
+    text-align: center;
+    color: black;
+}
+
+h1 {
+    margin: 25px auto;
+    text-align: center;
+}
+
+h2 {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#asided {
+    color: #fffff0;
+    font-size: 22px;
+    padding-top: 0;
+    
+}
