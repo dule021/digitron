@@ -8,6 +8,7 @@ var rez = "";
 var expression = "";
 var onButton = document.getElementById("on");
 var offButton = document.getElementById("off");
+var defButton = window.localStorage.getItem("button");
 // Operatori -----------------------------------------------
 
 document.getElementById("plus").onclick = function () {
@@ -195,7 +196,7 @@ document.getElementById("equals").onclick = function() {
         }
         else if ($ign[m]==="divide"){
             if (numberInt[m+1]===0){
-                rez = 0;
+                rez = false;
             }
             else {
                 if(m===0){
@@ -209,7 +210,11 @@ document.getElementById("equals").onclick = function() {
     }
     
     var result = function(r) {
-        if (Number.isInteger(r)){
+        if (!r){
+            var zeroDiv = "No divison by zero.";
+            return zeroDiv;
+        }
+        else if (Number.isInteger(r)){
             return r;
         }
         else {
@@ -220,10 +225,12 @@ document.getElementById("equals").onclick = function() {
     if (onButton.checked == true){
         document.getElementById("asided").innerHTML = expression + $number[$number.length-1] + " = " + result(rez);
         window.localStorage.setItem("lastCalc", document.getElementById("asided").innerHTML);
+        window.localStorage.setItem("button", "ON");
     }
-    else {
+    else if (offButton.checked == true) {
         document.getElementById("asided").innerHTML = "";
         window.localStorage.setItem("lastCalc", document.getElementById("asided").innerHTML);
+        window.localStorage.setItem("button", "OFF");
     }
     
     document.getElementById("rez").innerHTML = result(rez);
@@ -245,3 +252,31 @@ document.getElementById("equals").onclick = function() {
 }
 
 document.getElementById("asided").innerHTML = window.localStorage.getItem("lastCalc");
+
+if (window.localStorage.getItem("button") === "ON"){
+    onButton.checked = true;
+    offButton.checked = false;
+}
+else {
+    onButton.checked = false;
+    offButton.checked = true;
+}
+
+function clickOff(){
+    if (offButton.checked = true){
+        document.getElementById("asided").innerHTML = "";
+        window.localStorage.setItem("lastCalc", document.getElementById("asided").innerHTML);
+        window.localStorage.setItem("button", "OFF");
+    }
+}
+offButton.addEventListener("click", clickOff);
+
+function clickOn(){
+    if (onButton.checked = true){
+        
+        window.localStorage.setItem("lastCalc", document.getElementById("asided").innerHTML);
+        window.localStorage.setItem("button", "ON");
+    }
+}
+offButton.addEventListener("click", clickOff);
+onButton.addEventListener("click", clickOn);
